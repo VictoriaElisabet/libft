@@ -1,51 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmo.c                                         :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgrankul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/23 17:05:52 by vgrankul          #+#    #+#             */
-/*   Updated: 2019/10/29 15:38:04 by vgrankul         ###   ########.fr       */
+/*   Created: 2019/10/29 10:02:43 by vgrankul          #+#    #+#             */
+/*   Updated: 2019/10/29 10:05:50 by vgrankul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strlen(char *str)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	int counter;
+	int i;
 
-	counter = 0;
-	while (*str != '\0')
+	i = 0;
+	while (*s != '\0')
 	{
-		str++;
-		counter++;
+		f(i, s);
+		s++;
+		i++;
 	}
-	return (counter);
-}
-
-void	*ft_memmove(void *dst, const void *src, size_t len)
-{
-	char *s1;
-	char *s2;
-
-	s1 = (char*)dst;
-	s2 = (char*)src;
-	if (dst < src)
-	{
-		while (len)
-		{
-			s1[len] = s2[len];
-			len--;
-		}
-	}
-	while (len)
-	{
-		*s1 = *s2;
-		s1++;
-		s2++;
-		len--;
-	}
-	return (dst);
 }

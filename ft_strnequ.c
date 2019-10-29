@@ -1,51 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmo.c                                         :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgrankul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/23 17:05:52 by vgrankul          #+#    #+#             */
-/*   Updated: 2019/10/29 15:38:04 by vgrankul         ###   ########.fr       */
+/*   Created: 2019/10/29 10:13:28 by vgrankul          #+#    #+#             */
+/*   Updated: 2019/10/29 10:16:54 by vgrankul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strlen(char *str)
+int	ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	int counter;
-
-	counter = 0;
-	while (*str != '\0')
+	while (n && *s1 != '\0')
 	{
-		str++;
-		counter++;
-	}
-	return (counter);
-}
-
-void	*ft_memmove(void *dst, const void *src, size_t len)
-{
-	char *s1;
-	char *s2;
-
-	s1 = (char*)dst;
-	s2 = (char*)src;
-	if (dst < src)
-	{
-		while (len)
+		if (*s1 == *s2)
 		{
-			s1[len] = s2[len];
-			len--;
+			s1++;
+			s2++;
+			n--;
 		}
+		else if (*s1 != *s2)
+			return (0);
 	}
-	while (len)
-	{
-		*s1 = *s2;
-		s1++;
-		s2++;
-		len--;
-	}
-	return (dst);
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: vgrankul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/22 11:28:19 by vgrankul          #+#    #+#             */
-/*   Updated: 2019/10/22 11:56:21 by vgrankul         ###   ########.fr       */
+/*   Updated: 2019/10/29 10:18:59 by vgrankul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	ft_bzero(void *s, size_t n)
 	char *str;
 
 	str = (char*)s;
-	if (str == '\0')
-		return (0);
 	while (n)
 	{
 		*str = '\0';

@@ -1,51 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmo.c                                         :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgrankul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/23 17:05:52 by vgrankul          #+#    #+#             */
-/*   Updated: 2019/10/29 15:38:04 by vgrankul         ###   ########.fr       */
+/*   Created: 2019/10/29 15:15:39 by vgrankul          #+#    #+#             */
+/*   Updated: 2019/10/29 15:31:30 by vgrankul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strlen(char *str)
+void	ft_bzero(void *s, size_t n)
 {
-	int counter;
+	char *str;
 
-	counter = 0;
-	while (*str != '\0')
+	str = (char*)s;
+	while (n)
 	{
+		*str = '\0';
 		str++;
-		counter++;
+		n--;
 	}
-	return (counter);
 }
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memalloc(size_t size)
 {
-	char *s1;
-	char *s2;
+	void *memarea;
 
-	s1 = (char*)dst;
-	s2 = (char*)src;
-	if (dst < src)
+	memarea = (void*)malloc(sizeof(void) * size);
+	if (memarea)
 	{
-		while (len)
-		{
-			s1[len] = s2[len];
-			len--;
-		}
+		ft_bzero(memarea, size);
+		return (memarea);
 	}
-	while (len)
+	else
+		return (NULL);
+}
+
+char	*ft_strnew(size_t size)
+{
+	char *str;
+
+	str = ft_memalloc(size + 1);
+	if (str)
 	{
-		*s1 = *s2;
-		s1++;
-		s2++;
-		len--;
+		return (str);
 	}
-	return (dst);
+	else
+		return (NULL);
 }

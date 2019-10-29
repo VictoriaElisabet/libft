@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmo.c                                         :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgrankul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/23 17:05:52 by vgrankul          #+#    #+#             */
-/*   Updated: 2019/10/29 15:38:04 by vgrankul         ###   ########.fr       */
+/*   Created: 2019/10/29 12:21:17 by vgrankul          #+#    #+#             */
+/*   Updated: 2019/10/29 12:38:42 by vgrankul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,27 +25,26 @@ int		ft_strlen(char *str)
 	return (counter);
 }
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char *s1;
-	char *s2;
+	char	*new;
+	char	*ptr;
+	int		i;
 
-	s1 = (char*)dst;
-	s2 = (char*)src;
-	if (dst < src)
+	i = 0;
+	new = (char*)malloc(sizeof(char) * ft_strlen((char*)s) + 1);
+	ptr = new;
+	if (new && s)
 	{
-		while (len)
+		while (*s != '\0')
 		{
-			s1[len] = s2[len];
-			len--;
+			*new = f(i, *s);
+			new++;
+			s++;
+			i++;
 		}
+		*new = '\0';
+		return (ptr);
 	}
-	while (len)
-	{
-		*s1 = *s2;
-		s1++;
-		s2++;
-		len--;
-	}
-	return (dst);
+	return (NULL);
 }

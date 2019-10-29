@@ -1,51 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmo.c                                         :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgrankul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/23 17:05:52 by vgrankul          #+#    #+#             */
-/*   Updated: 2019/10/29 15:38:04 by vgrankul         ###   ########.fr       */
+/*   Created: 2019/10/29 10:08:00 by vgrankul          #+#    #+#             */
+/*   Updated: 2019/10/29 10:11:58 by vgrankul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strlen(char *str)
+int	ft_strequ(char const *s1, char const *s2)
 {
-	int counter;
-
-	counter = 0;
-	while (*str != '\0')
+	while ((*s1 != '\0' || *s2 != '\0') && *s1 == *s2)
 	{
-		str++;
-		counter++;
-	}
-	return (counter);
-}
-
-void	*ft_memmove(void *dst, const void *src, size_t len)
-{
-	char *s1;
-	char *s2;
-
-	s1 = (char*)dst;
-	s2 = (char*)src;
-	if (dst < src)
-	{
-		while (len)
-		{
-			s1[len] = s2[len];
-			len--;
-		}
-	}
-	while (len)
-	{
-		*s1 = *s2;
 		s1++;
 		s2++;
-		len--;
 	}
-	return (dst);
+	if (*s1 == *s2)
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
 }

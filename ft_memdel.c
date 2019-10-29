@@ -1,51 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmo.c                                         :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgrankul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/23 17:05:52 by vgrankul          #+#    #+#             */
-/*   Updated: 2019/10/29 15:38:04 by vgrankul         ###   ########.fr       */
+/*   Created: 2019/10/29 13:50:28 by vgrankul          #+#    #+#             */
+/*   Updated: 2019/10/29 14:58:15 by vgrankul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strlen(char *str)
+void	ft_memdel(void **ap)
 {
-	int counter;
-
-	counter = 0;
-	while (*str != '\0')
+	if (!(*ap == NULL))
 	{
-		str++;
-		counter++;
+		free(*ap);
+		*ap = NULL;
 	}
-	return (counter);
-}
-
-void	*ft_memmove(void *dst, const void *src, size_t len)
-{
-	char *s1;
-	char *s2;
-
-	s1 = (char*)dst;
-	s2 = (char*)src;
-	if (dst < src)
-	{
-		while (len)
-		{
-			s1[len] = s2[len];
-			len--;
-		}
-	}
-	while (len)
-	{
-		*s1 = *s2;
-		s1++;
-		s2++;
-		len--;
-	}
-	return (dst);
 }

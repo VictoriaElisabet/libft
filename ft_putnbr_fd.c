@@ -1,51 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmo.c                                         :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgrankul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/23 17:05:52 by vgrankul          #+#    #+#             */
-/*   Updated: 2019/10/29 15:38:04 by vgrankul         ###   ########.fr       */
+/*   Created: 2019/10/29 09:57:02 by vgrankul          #+#    #+#             */
+/*   Updated: 2019/10/29 10:01:22 by vgrankul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strlen(char *str)
+void	ft_putchar_fd(char c, int fd)
 {
-	int counter;
-
-	counter = 0;
-	while (*str != '\0')
-	{
-		str++;
-		counter++;
-	}
-	return (counter);
+	write(fd, &c, 1);
 }
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char *s1;
-	char *s2;
-
-	s1 = (char*)dst;
-	s2 = (char*)src;
-	if (dst < src)
+	if (n == -2147483648)
 	{
-		while (len)
+		n = n / 10;
+		ft_putnbr_fd(n, fd);
+		ft_putchar_fd('8', fd);
+	}
+	else
+	{
+		if (n < -2147483648 || n > 2147483647)
+			return ;
+		if (n < 0)
 		{
-			s1[len] = s2[len];
-			len--;
+			ft_putchar_fd('-', fd);
+			n = -n;
 		}
+		if (n < 10)
+		{
+			ft_putchar_fd(n + '0', fd);
+			return ;
+		}
+		ft_putnbr_fd(n / 10, fd);
+		ft_putchar_fd((n % 10) + '0', fd);
+		return ;
 	}
-	while (len)
-	{
-		*s1 = *s2;
-		s1++;
-		s2++;
-		len--;
-	}
-	return (dst);
 }
