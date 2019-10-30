@@ -1,41 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmo.c                                         :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgrankul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/23 17:05:52 by vgrankul          #+#    #+#             */
-/*   Updated: 2019/10/30 10:50:40 by vgrankul         ###   ########.fr       */
+/*   Created: 2019/10/30 11:48:19 by vgrankul          #+#    #+#             */
+/*   Updated: 2019/10/30 12:49:44 by vgrankul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	char *s1;
-	char *s2;
+	char *str;
+	char *ptr;
 
-	s1 = (char*)dst;
-	s2 = (char*)src;
-	if (s1 > s2)
+	str = (char*)malloc((sizeof(char) * len) + 1);
+	ptr = str;
+	if (str)
 	{
-		while (len)
+		while (len && *s != '\0')
 		{
-			s1[len - 1] = s2[len - 1];
+			*str = (char)s[start];
+			str++;
+			start++;
 			len--;
 		}
+		*str = '\0';
+		return (ptr);
 	}
 	else
-	{
-		while (len)
-		{
-			*s1 = *s2;
-			s1++;
-			s2++;
-			len--;
-		}
-	}
-	return (dst);
+		return (NULL);
 }
