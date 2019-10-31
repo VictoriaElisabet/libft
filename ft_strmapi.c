@@ -6,24 +6,11 @@
 /*   By: vgrankul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 12:21:17 by vgrankul          #+#    #+#             */
-/*   Updated: 2019/10/29 12:38:42 by vgrankul         ###   ########.fr       */
+/*   Updated: 2019/10/31 13:30:29 by vgrankul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-int		ft_strlen(char *str)
-{
-	int counter;
-
-	counter = 0;
-	while (*str != '\0')
-	{
-		str++;
-		counter++;
-	}
-	return (counter);
-}
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

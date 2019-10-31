@@ -6,29 +6,16 @@
 /*   By: vgrankul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/23 14:05:18 by vgrankul          #+#    #+#             */
-/*   Updated: 2019/10/23 14:22:49 by vgrankul         ###   ########.fr       */
+/*   Updated: 2019/10/31 14:32:10 by vgrankul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strlen(char *str)
-{
-	int counter;
-
-	counter = 0;
-	while (*str != '\0')
-	{
-		str++;
-		counter++;
-	}
-	return (counter);
-}
-
 char	*ft_strstr(const char *haystack, const char *needle)
 {
 	int i;
-	int j;
+	size_t j;
 
 	i = 0;
 	j = 0;
@@ -36,7 +23,7 @@ char	*ft_strstr(const char *haystack, const char *needle)
 	{
 		if (haystack[i] == needle[0])
 		{
-			while (haystack[i + j] == needle[j] && needle != '\0')
+			while (haystack[i + j] == needle[j] && needle[j] != '\0' && haystack[i + j] != '\0')
 			{
 				j++;
 				if (j == ft_strlen((char*)needle))

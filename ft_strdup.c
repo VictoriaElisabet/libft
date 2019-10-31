@@ -6,26 +6,13 @@
 /*   By: vgrankul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 10:18:21 by vgrankul          #+#    #+#             */
-/*   Updated: 2019/10/20 16:37:55 by vgrankul         ###   ########.fr       */
+/*   Updated: 2019/10/31 14:27:03 by vgrankul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strlen(char *str)
-{
-	int counter;
-
-	counter = 0;
-	while (*str != '\0')
-	{
-		str++;
-		counter++;
-	}
-	return (counter);
-}
-
-char	*ft_strcpy(char *dest, const char *src)
+static char	*ft_mystrcpy(char *dest, const char *src)
 {
 	while (*src != '\0')
 	{
@@ -41,10 +28,10 @@ char	*ft_strdup(char *src)
 {
 	char *arr;
 
-	arr = (char*)malloc(sizeof(ft_strlen(src) + 1));
+	arr = (char*)malloc(sizeof(char) * (ft_strlen(src) + 1));
 	if (arr)
 	{
-		ft_strcpy(arr, src);
+		ft_mystrcpy(arr, src);
 	}
 	else
 	{

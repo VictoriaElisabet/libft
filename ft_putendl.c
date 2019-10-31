@@ -6,16 +6,11 @@
 /*   By: vgrankul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 09:32:08 by vgrankul          #+#    #+#             */
-/*   Updated: 2019/10/29 09:36:46 by vgrankul         ###   ########.fr       */
+/*   Updated: 2019/10/31 14:07:18 by vgrankul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
 
 void	ft_putendl(char const *s)
 {

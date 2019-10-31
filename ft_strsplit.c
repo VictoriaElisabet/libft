@@ -6,85 +6,59 @@
 /*   By: vgrankul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 15:39:39 by vgrankul          #+#    #+#             */
-/*   Updated: 2019/10/30 17:01:31 by vgrankul         ###   ########.fr       */
+/*   Updated: 2019/10/31 13:48:03 by vgrankul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-void	ft_putstr(char *str)
-{
-	while (*str != '\0')
-	{
-		ft_putchar(*str);
-		str++;
-	}
-}
-
-int	ft_strlen(char *str)
-{
-	int counter;
-
-	counter = 0;
-	while (*str != '\0')
-	{
-		str++;
-		counter++;
-	}
-	return (counter);
-}
-
-char	**ft_strsplit(char const *s, char c)
+static int	wordlength(const char *str, char c)
 {
 	int i;
-	int j;
-	int count;
-	char **arr;
 
 	i = 0;
-	count = 0;
-	while (s[i] != '\0')
-	{	
-		j = 0;
-		if (s[i] == c && s[i + 1] != c)
-			i++;
-	}
-	printf("%d", count);
-	arr = (char**)malloc(sizeof(char*) * i + 1);
+	while (str[i] != c && str[i])
+		i++;
+	return (i);
+}
+
+static	int	get_word(const char *str, char c)
+{
+	int i;
+	int word;
+
 	i = 0;
-	while (s[i] != '\0')
+	word = 0;
+	if (str[0] == c && str[i + 1] != c)
+		i++;
+	while (str[i])
 	{
-		*arr = (char*)malloc((sizeof(char) * j) + 1);
-		j = 0;
-		while (*s != c)
-		{
-			arr[i][j] = (char)s[j];
-			j++;
-		}
-		arr[i][j] = '\0';
+		if (str[i] == c && str[i + 1] != c)
+			word++;
 		i++;
 	}
-	printf("%d", i);
-	arr[i] = 0;
-	return(arr);
+	return (word);
 }
-int	main(void)
+
+char		**ft_strsplit(char const *s, char c)
 {
-	char *str = "*hello*test*mest*";
-	char **arr;
-	arr = ft_strsplit(str, '*');
-//	int i = 0;
-//	while (*arr[i] != 0)
-//	{
-//		ft_putstr(*arr);
-//		i++;
-//	}
+	int		i;
+	int		j;
+	char	**arr;
+	int		words;
 
-
+	i = 0;
+	j = 0;
+	words = get_word((char*)s, c);
+	arr = (char**)malloc(sizeof(char*) * (words + 1));
+	while (i < words)
+	{
+		while (s[j] == c)
+			j++;
+		arr[i] = ft_strsub(&s[j], 0, wordlength(&s[j], c));
+		j = j + wordlength(&s[j], c);
+		i++;
+	}
+	arr[i] = NULL;
+	return (arr);
 }

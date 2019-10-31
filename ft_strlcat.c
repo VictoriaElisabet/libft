@@ -6,24 +6,11 @@
 /*   By: vgrankul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 10:26:57 by vgrankul          #+#    #+#             */
-/*   Updated: 2019/10/24 13:11:23 by vgrankul         ###   ########.fr       */
+/*   Updated: 2019/10/31 13:53:13 by vgrankul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-int		ft_strlen(char *str)
-{
-	int counter;
-
-	counter = 0;
-	while (*str != '\0')
-	{
-		str++;
-		counter++;
-	}
-	return (counter);
-}
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {

@@ -6,15 +6,15 @@
 /*   By: vgrankul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 15:52:14 by vgrankul          #+#    #+#             */
-/*   Updated: 2019/10/18 12:49:01 by vgrankul         ###   ########.fr       */
+/*   Updated: 2019/10/31 13:23:45 by vgrankul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
-	int counter;
+	size_t counter;
 
 	counter = 0;
 	while (*str != '\0')

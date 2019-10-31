@@ -6,7 +6,7 @@
 /*   By: vgrankul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 13:23:55 by vgrankul          #+#    #+#             */
-/*   Updated: 2019/10/30 15:33:00 by vgrankul         ###   ########.fr       */
+/*   Updated: 2019/10/31 13:32:29 by vgrankul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,6 @@
 static	int		is_whitespace(char c)
 {
 	return (c == ' ' || c == ',' || c == '\n' || c == '\t');
-}
-
-int				ft_strlen(char *str)
-{
-	int counter;
-
-	counter = 0;
-	while (*str != '\0')
-	{
-		str++;
-		counter++;
-	}
-	return (counter);
 }
 
 char			*ft_strtrim(char const *s)

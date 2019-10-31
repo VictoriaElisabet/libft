@@ -6,7 +6,7 @@
 /*   By: vgrankul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/22 14:25:43 by vgrankul          #+#    #+#             */
-/*   Updated: 2019/10/22 14:39:46 by vgrankul         ###   ########.fr       */
+/*   Updated: 2019/10/31 14:25:02 by vgrankul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 		n--;
 		if (*s1 == value)
 		{
-			return (s1);
+			return ((void*)s1);
 		}
 	}
 	return (NULL);
