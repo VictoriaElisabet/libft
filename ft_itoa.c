@@ -6,7 +6,7 @@
 /*   By: vgrankul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 12:52:28 by vgrankul          #+#    #+#             */
-/*   Updated: 2019/10/31 14:02:33 by vgrankul         ###   ########.fr       */
+/*   Updated: 2019/11/01 10:57:14 by vgrankul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static	int		count_digits(int n)
 	int i;
 
 	i = 0;
+	if (n < 0)
+		i++;
 	if (n == 0)
 		return (1);
 	while (n)
@@ -31,27 +33,24 @@ char			*ft_itoa(int n)
 {
 	char	*str;
 	int		len;
-	int		neg;
+	long	nb;
 
-	neg = 0;
+	nb = n;
 	len = count_digits(n);
 	if (!(str = (char*)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	if (n < 0)
+	str[len--] = '\0';
+	if (nb == 0)
+		str[len--] = '0';
+	if (nb < 0)
 	{
 		str[0] = '-';
-		n = n * -1;
-		neg = 1;
+		nb = nb * -1;
 	}
-	str[len-- + neg] = '\0';
-	if (n == 0)
-		str[len--] = '0';
-	while (n > 0)
+	while (nb > 0)
 	{
-		str[len--] = (n % 10) + '0';
-		n = n / 10;
+		str[len--] = (nb % 10) + '0';
+		nb = nb / 10;
 	}
 	return (str);
 }

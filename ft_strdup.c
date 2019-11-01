@@ -6,13 +6,13 @@
 /*   By: vgrankul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 10:18:21 by vgrankul          #+#    #+#             */
-/*   Updated: 2019/10/31 14:27:03 by vgrankul         ###   ########.fr       */
+/*   Updated: 2019/11/01 13:35:26 by vgrankul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_mystrcpy(char *dest, const char *src)
+static char		*ft_mystrcpy(char *dest, const char *src)
 {
 	while (*src != '\0')
 	{
@@ -24,7 +24,7 @@ static char	*ft_mystrcpy(char *dest, const char *src)
 	return (dest);
 }
 
-char	*ft_strdup(char *src)
+char			*ft_strdup(char *src)
 {
 	char *arr;
 
