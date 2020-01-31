@@ -6,7 +6,7 @@
 /*   By: vgrankul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 15:39:39 by vgrankul          #+#    #+#             */
-/*   Updated: 2019/10/31 13:48:03 by vgrankul         ###   ########.fr       */
+/*   Updated: 2019/11/04 16:45:51 by vgrankul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ static	int	get_word(const char *str, char c)
 
 	i = 0;
 	word = 0;
-	if (str[0] == c && str[i + 1] != c)
-		i++;
+	if (str[i] != c)
+		word++;
 	while (str[i])
 	{
-		if (str[i] == c && str[i + 1] != c)
+		if (str[i] == c && str[i + 1] != c && str[i + 1] != '\0')
 			word++;
 		i++;
 	}
@@ -51,14 +51,18 @@ char		**ft_strsplit(char const *s, char c)
 	j = 0;
 	words = get_word((char*)s, c);
 	arr = (char**)malloc(sizeof(char*) * (words + 1));
-	while (i < words)
+	if (arr)
 	{
-		while (s[j] == c)
-			j++;
-		arr[i] = ft_strsub(&s[j], 0, wordlength(&s[j], c));
-		j = j + wordlength(&s[j], c);
-		i++;
+		while (i < words)
+		{
+			while (s[j] == c)
+				j++;
+			arr[i] = ft_strsub(&s[j], 0, wordlength(&s[j], c));
+			j = j + wordlength(&s[j], c);
+			i++;
+		}
+		arr[i] = NULL;
+		return (arr);
 	}
-	arr[i] = NULL;
-	return (arr);
+	return (NULL);
 }

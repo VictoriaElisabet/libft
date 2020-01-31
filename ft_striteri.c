@@ -6,7 +6,7 @@
 /*   By: vgrankul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 10:02:43 by vgrankul          #+#    #+#             */
-/*   Updated: 2019/10/29 10:05:50 by vgrankul         ###   ########.fr       */
+/*   Updated: 2019/11/07 15:54:15 by vgrankul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	int i;
 
+	if (s == NULL)
+		return ;
 	i = 0;
 	while (*s != '\0')
 	{

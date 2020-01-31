@@ -6,7 +6,7 @@
 /*   By: vgrankul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/22 14:25:43 by vgrankul          #+#    #+#             */
-/*   Updated: 2019/10/31 14:25:02 by vgrankul         ###   ########.fr       */
+/*   Updated: 2019/11/04 10:18:19 by vgrankul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	s1 = (char*)s;
 	while (n)
 	{
-		s1++;
-		n--;
 		if (*s1 == value)
 		{
 			return ((void*)s1);
 		}
+		n--;
+		s1++;
 	}
 	return (NULL);
 }

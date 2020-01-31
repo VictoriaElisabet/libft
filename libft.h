@@ -6,7 +6,7 @@
 /*   By: vgrankul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 10:24:05 by vgrankul          #+#    #+#             */
-/*   Updated: 2019/10/31 14:10:07 by vgrankul         ###   ########.fr       */
+/*   Updated: 2019/11/06 16:36:44 by vgrankul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ void	*ft_memalloc(size_t size);
 void	ft_memdel(void **ap);
 void	ft_strdel(char **as);
 
-char	*ft_strcpy(char *dest, const char *src);
+char	*ft_strcpy(char *dst, const char *src);
 char	*ft_strncpy(char *dst, const char *src, size_t len);
-char	*ft_strdup(char *src);
+char	*ft_strdup(const char *src);
 char	*ft_strcat(char *s1, const char *s2);
 char	*ft_strncat(char *s1, const char *s2, size_t n);
 char	*ft_strchr(const char *s, int c);

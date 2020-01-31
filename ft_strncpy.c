@@ -6,7 +6,7 @@
 /*   By: vgrankul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/20 14:29:08 by vgrankul          #+#    #+#             */
-/*   Updated: 2019/11/01 13:29:31 by vgrankul         ###   ########.fr       */
+/*   Updated: 2019/11/04 15:08:57 by vgrankul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,11 @@ char	*ft_strncpy(char *dst, const char *src, size_t len)
 		src++;
 		i++;
 	}
-	if (*src == '\0')
-		*dst = '\0';
-	if (i < len)
+	while (i < len)
 	{
-		while (i < len)
-		{
-			*dst = '\0';
-			i++;
-		}
+		*dst = '\0';
+		i++;
+		dst++;
 	}
-	return (dst);
+	return (ptr);
 }

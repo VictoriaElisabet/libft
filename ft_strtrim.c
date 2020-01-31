@@ -6,7 +6,7 @@
 /*   By: vgrankul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 13:23:55 by vgrankul          #+#    #+#             */
-/*   Updated: 2019/10/31 13:32:29 by vgrankul         ###   ########.fr       */
+/*   Updated: 2019/11/05 14:33:34 by vgrankul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static	int		is_whitespace(char c)
 {
-	return (c == ' ' || c == ',' || c == '\n' || c == '\t');
+	return (c == ' ' || c == '\n' || c == '\t');
 }
 
 char			*ft_strtrim(char const *s)
@@ -26,21 +26,19 @@ char			*ft_strtrim(char const *s)
 
 	i = 0;
 	k = 0;
-	while (is_whitespace(s[i]))
+	if (!s)
+		return (NULL);
+	while (is_whitespace(s[i]) && s[i] != '\0')
 		i++;
 	j = ft_strlen((char*)s);
-	while (is_whitespace(s[j - 1]))
+	while (i < j && is_whitespace(s[j - 1]))
 		j--;
-	str = (char*)malloc(sizeof(char) * (j - i) + 1);
-	if (str)
-	{
-		while (i < j)
-		{
-			str[k++] = (char)s[i++];
-		}
-		str[k] = '\0';
-		return (str);
-	}
-	else
+	if (j == i)
+		return (ft_strnew(1));
+	if (!(str = (char*)malloc(sizeof(char) * (j - i) + 1)))
 		return (NULL);
+	while (i < j)
+		str[k++] = (char)s[i++];
+	str[k] = '\0';
+	return (str);
 }

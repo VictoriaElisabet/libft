@@ -6,7 +6,7 @@
 /*   By: vgrankul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 10:13:28 by vgrankul          #+#    #+#             */
-/*   Updated: 2019/10/29 10:16:54 by vgrankul         ###   ########.fr       */
+/*   Updated: 2019/11/04 16:03:55 by vgrankul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	while (n && *s1 != '\0')
+	while (n)
 	{
 		if (*s1 == *s2)
 		{

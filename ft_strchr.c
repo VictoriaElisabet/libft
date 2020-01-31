@@ -6,7 +6,7 @@
 /*   By: vgrankul <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/23 11:58:34 by vgrankul          #+#    #+#             */
-/*   Updated: 2019/10/23 12:39:01 by vgrankul         ###   ########.fr       */
+/*   Updated: 2019/11/04 15:29:14 by vgrankul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strchr(const char *s, int c)
 
 	value = (char)c;
 	str = (char*)s;
+	if (value == '\0')
+		return (&str[ft_strlen(str)]);
 	while (*str != '\0')
 	{
 		if (*str == value)
