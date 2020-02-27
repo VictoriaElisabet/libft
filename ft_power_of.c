@@ -1,39 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_power_of.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgrankul <vgrankul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/30 12:52:28 by vgrankul          #+#    #+#             */
-/*   Updated: 2020/02/19 13:50:38 by vgrankul         ###   ########.fr       */
+/*   Created: 2020/02/03 14:12:42 by vgrankul          #+#    #+#             */
+/*   Updated: 2020/02/17 14:44:10 by vgrankul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char			*ft_itoa(long long n)
+long long	ft_power_of(int base, int exp)
 {
-	char		*str;
-	int			len;
-	long long	nb;
+	long double res;
 
-	nb = n;
-	len = ft_count_digits(n, 10);
-	if (!(str = (char*)malloc(sizeof(char) * (len + 1))))
-		return (NULL);
-	str[len--] = '\0';
-	if (nb == 0)
-		str[len--] = '0';
-	if (nb < 0)
+	res = 1;
+	base = (long long)base;
+	exp = (long long)exp;
+	while (exp > 0)
 	{
-		str[0] = '-';
-		nb = nb * -1;
+		res = res * base;
+		exp--;
 	}
-	while (nb > 0)
-	{
-		str[len--] = (nb % 10) + '0';
-		nb = nb / 10;
-	}
-	return (str);
+	return (res);
 }

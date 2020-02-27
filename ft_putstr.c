@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgrankul <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vgrankul <vgrankul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 14:42:03 by vgrankul          #+#    #+#             */
-/*   Updated: 2019/10/18 12:32:12 by vgrankul         ###   ########.fr       */
+/*   Updated: 2020/02/07 10:34:48 by vgrankul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,5 @@
 
 void	ft_putstr(char *str)
 {
-	while (*str != '\0')
-	{
-		ft_putchar(*str);
-		str++;
-	}
+	write(1, str, ft_strlen(str));
 }
