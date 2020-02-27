@@ -6,7 +6,7 @@
 /*   By: vgrankul <vgrankul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 10:24:05 by vgrankul          #+#    #+#             */
-/*   Updated: 2020/02/19 13:55:45 by vgrankul         ###   ########.fr       */
+/*   Updated: 2020/02/27 13:01:07 by vgrankul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
-# include "../ft_printf.h"
 
 void		ft_putchar(char c);
 void		ft_putstr(char *str);
